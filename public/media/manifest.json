@@ -1,0 +1,358 @@
+{
+  "team-logos-12.png": {
+    "url": "/media/team-logos-12.png",
+    "width": 1832,
+    "height": 256,
+    "bytes": 383146,
+    "originalFilename": "team-logos-12.png"
+  },
+  "team-logos-13.png": {
+    "url": "/media/team-logos-13.png",
+    "width": 869,
+    "height": 398,
+    "bytes": 323865,
+    "originalFilename": "team-logos-13.png"
+  },
+  "logo-stacked.png": {
+    "url": "/media/logo-stacked.png",
+    "width": 1107,
+    "height": 1231,
+    "bytes": 47445,
+    "originalFilename": "logo-stacked.png"
+  },
+  "logo.png": {
+    "url": "/media/logo.png",
+    "width": 2048,
+    "height": 814,
+    "bytes": 110924,
+    "originalFilename": "logo.png"
+  },
+  "logo-color.png": {
+    "url": "/media/logo-color.png",
+    "width": 2048,
+    "height": 836,
+    "bytes": 127393,
+    "originalFilename": "logo-color.png"
+  },
+  "cases/legal-evidence-1.jpg": {
+    "url": "/media/cases/legal-evidence-1.jpg",
+    "width": 1086,
+    "height": 1448,
+    "bytes": 250472,
+    "originalFilename": "906cee259fa9c260232525041288b50c.png"
+  },
+  "cases/legal-drafting.jpg": {
+    "url": "/media/cases/legal-drafting.jpg",
+    "width": 1280,
+    "height": 816,
+    "bytes": 119841,
+    "originalFilename": "003-起诉状（字幕）.mov"
+  },
+  "cases/brand-stores.jpg": {
+    "url": "/media/cases/brand-stores.jpg",
+    "width": 1920,
+    "height": 1080,
+    "bytes": 473642,
+    "originalFilename": "image(20261024-102652).png"
+  },
+  "cases/cross-platform.jpg": {
+    "url": "/media/cases/cross-platform.jpg",
+    "width": 1280,
+    "height": 720,
+    "bytes": 188410,
+    "originalFilename": "image(3).png"
+  },
+  "cases/legal-evidence-2.jpg": {
+    "url": "/media/cases/legal-evidence-2.jpg",
+    "width": 1920,
+    "height": 1081,
+    "bytes": 220350,
+    "originalFilename": "ca9b9d2650bd3275383576a1170cf70e.jpg"
+  },
+  "cases/cross-sales.jpg": {
+    "url": "/media/cases/cross-sales.jpg",
+    "width": 907,
+    "height": 930,
+    "bytes": 207273,
+    "originalFilename": "image(4).png"
+  },
+  "cases/legal-evidence-3.jpg": {
+    "url": "/media/cases/legal-evidence-3.jpg",
+    "width": 1920,
+    "height": 1080,
+    "bytes": 162948,
+    "originalFilename": "ae0ae64cb0afef7f3636f9e4d63358a4.jpg"
+  },
+  "cases/brand-ip-1.mp4": {
+    "url": "/media/cases/brand-ip-1.mp4",
+    "width": 720,
+    "height": 1280,
+    "bytes": 13060440,
+    "originalFilename": "7d9edb275cb46bec4d8e584f16b7951e_raw.mp4",
+    "duration": 45.12,
+    "videoCodec": "h264",
+    "poster": "/media/cases/brand-ip-1.jpg"
+  },
+  "cases/legal-evidence-4.jpg": {
+    "url": "/media/cases/legal-evidence-4.jpg",
+    "width": 1080,
+    "height": 1920,
+    "bytes": 421589,
+    "originalFilename": "a7735228776a025d19e04629a3324e23.jpg"
+  },
+  "cases/legal-materials.jpg": {
+    "url": "/media/cases/legal-materials.jpg",
+    "width": 1048,
+    "height": 720,
+    "bytes": 76378,
+    "originalFilename": "002-整理材料（字幕） (1).mov"
+  },
+  "cases/brand-production.mp4": {
+    "url": "/media/cases/brand-production.mp4",
+    "width": 1234,
+    "height": 1024,
+    "bytes": 808526,
+    "originalFilename": "f9501683dbe97b92365b050e5cb546cc.mp4",
+    "duration": 16.67,
+    "videoCodec": "h264",
+    "poster": "/media/cases/brand-production.jpg"
+  },
+  "cases/brand-ip-2.mp4": {
+    "url": "/media/cases/brand-ip-2.mp4",
+    "width": 720,
+    "height": 960,
+    "bytes": 7827995,
+    "originalFilename": "视频1.mp4",
+    "duration": 32.3,
+    "videoCodec": "h264",
+    "poster": "/media/cases/brand-ip-2.jpg"
+  },
+  "cases/legal-research.mp4": {
+    "url": "/media/cases/legal-research.mp4",
+    "width": 1280,
+    "height": 816,
+    "bytes": 6036817,
+    "originalFilename": "005-类案检索 (1).mov",
+    "duration": 26.68,
+    "videoCodec": "h264",
+    "poster": "/media/cases/legal-research.jpg"
+  },
+  "cases/legal-evidence-5.jpg": {
+    "url": "/media/cases/legal-evidence-5.jpg",
+    "width": 1081,
+    "height": 1920,
+    "bytes": 133319,
+    "originalFilename": "ca534cb3e273c6ab30ae98e7a1a62927.jpg"
+  },
+  "cases/cross-system.mp4": {
+    "url": "/media/cases/cross-system.mp4",
+    "width": 960,
+    "height": 544,
+    "bytes": 8756774,
+    "originalFilename": "微信视频2026-09-24_170249_294.mp4",
+    "duration": 306.39,
+    "videoCodec": "h264",
+    "poster": "/media/cases/cross-system.jpg"
+  },
+  "cases/brand-templates.jpg": {
+    "url": "/media/cases/brand-templates.jpg",
+    "width": 1280,
+    "height": 497,
+    "bytes": 145848,
+    "originalFilename": "image(20261024-102929).png"
+  },
+  "cases/cross-influencer-1.mp4": {
+    "url": "/media/cases/cross-influencer-1.mp4",
+    "width": 720,
+    "height": 1280,
+    "bytes": 3760619,
+    "originalFilename": "564e08e20e144c49881e6fc049565710.mp4",
+    "duration": 11.62,
+    "videoCodec": "h264",
+    "poster": "/media/cases/cross-influencer-1.jpg"
+  },
+  "cases/brand-results-1.jpg": {
+    "url": "/media/cases/brand-results-1.jpg",
+    "width": 1920,
+    "height": 1080,
+    "bytes": 253170,
+    "originalFilename": "image(10).png"
+  },
+  "cases/brand-system.jpg": {
+    "url": "/media/cases/brand-system.jpg",
+    "width": 1672,
+    "height": 941,
+    "bytes": 436279,
+    "originalFilename": "image(20261024-102817).png"
+  },
+  "cases/cross-influencer-2.mp4": {
+    "url": "/media/cases/cross-influencer-2.mp4",
+    "width": 720,
+    "height": 1280,
+    "bytes": 7471811,
+    "originalFilename": "案例视频2.mp4",
+    "duration": 22.08,
+    "videoCodec": "h264",
+    "poster": "/media/cases/cross-influencer-2.jpg"
+  },
+  "cases/brand-results-2.jpg": {
+    "url": "/media/cases/brand-results-2.jpg",
+    "width": 1920,
+    "height": 1080,
+    "bytes": 208539,
+    "originalFilename": "image(20261024-102551).png"
+  },
+  "cases/cross-influencer-2.jpg": {
+    "url": "/media/cases/cross-influencer-2.jpg",
+    "width": 720,
+    "height": 1280,
+    "bytes": 96369,
+    "originalFilename": "案例视频2.mp4"
+  },
+  "cases/cross-system.jpg": {
+    "url": "/media/cases/cross-system.jpg",
+    "width": 960,
+    "height": 544,
+    "bytes": 44367,
+    "originalFilename": "微信视频2026-09-24_170249_294.mp4"
+  },
+  "cases/cross-influencer-1.jpg": {
+    "url": "/media/cases/cross-influencer-1.jpg",
+    "width": 720,
+    "height": 1280,
+    "bytes": 51769,
+    "originalFilename": "564e08e20e144c49881e6fc049565710.mp4"
+  },
+  "cases/legal-drafting.mp4": {
+    "url": "/media/cases/legal-drafting.mp4",
+    "width": 1280,
+    "height": 816,
+    "bytes": 6210704,
+    "originalFilename": "003-起诉状（字幕）.mov",
+    "duration": 31.79,
+    "videoCodec": "h264",
+    "poster": "/media/cases/legal-drafting.jpg"
+  },
+  "cases/legal-materials.mp4": {
+    "url": "/media/cases/legal-materials.mp4",
+    "width": 1048,
+    "height": 720,
+    "bytes": 5317499,
+    "originalFilename": "002-整理材料（字幕） (1).mov",
+    "duration": 43.28,
+    "videoCodec": "h264",
+    "poster": "/media/cases/legal-materials.jpg"
+  },
+  "cases/legal-research.jpg": {
+    "url": "/media/cases/legal-research.jpg",
+    "width": 1280,
+    "height": 816,
+    "bytes": 146126,
+    "originalFilename": "005-类案检索 (1).mov"
+  },
+  "cases/brand-ip-2.jpg": {
+    "url": "/media/cases/brand-ip-2.jpg",
+    "width": 720,
+    "height": 960,
+    "bytes": 109338,
+    "originalFilename": "视频1.mp4"
+  },
+  "cases/brand-production.jpg": {
+    "url": "/media/cases/brand-production.jpg",
+    "width": 1234,
+    "height": 1024,
+    "bytes": 91342,
+    "originalFilename": "f9501683dbe97b92365b050e5cb546cc.mp4"
+  },
+  "cases/cross-pricing.jpg": {
+    "url": "/media/cases/cross-pricing.jpg",
+    "width": 1144,
+    "height": 1375,
+    "bytes": 327259,
+    "originalFilename": "image(5).png"
+  },
+  "cases/brand-ip-1.jpg": {
+    "url": "/media/cases/brand-ip-1.jpg",
+    "width": 720,
+    "height": 1280,
+    "bytes": 82496,
+    "originalFilename": "7d9edb275cb46bec4d8e584f16b7951e_raw.mp4"
+  },
+  "experts/daiming.jpg": {
+    "url": "/media/experts/daiming.jpg",
+    "width": 800,
+    "height": 1066,
+    "bytes": 64768,
+    "originalFilename": "f79052edbd1134658297c1584b4f3e24.jpg"
+  },
+  "experts/anthony.jpg": {
+    "url": "/media/experts/anthony.jpg",
+    "width": 490,
+    "height": 452,
+    "bytes": 55382,
+    "originalFilename": "feb286f7-34ee-4b28-b234-99bfd54dd690.png"
+  },
+  "experts/hehaizhao.jpg": {
+    "url": "/media/experts/hehaizhao.jpg",
+    "width": 800,
+    "height": 1066,
+    "bytes": 82788,
+    "originalFilename": "f33aefc62f5ad1074aba48791a51e281.png"
+  },
+  "experts/ryan.jpg": {
+    "url": "/media/experts/ryan.jpg",
+    "width": 427,
+    "height": 640,
+    "bytes": 18317,
+    "originalFilename": "NP7A5985中.jpeg"
+  },
+  "experts/xuheng.jpg": {
+    "url": "/media/experts/xuheng.jpg",
+    "width": 205,
+    "height": 356,
+    "bytes": 14681,
+    "originalFilename": "05d99f15-7ca1-4495-9b3c-7815bd476fa4.png"
+  },
+  "experts/zhangpeiming.jpg": {
+    "url": "/media/experts/zhangpeiming.jpg",
+    "width": 800,
+    "height": 1066,
+    "bytes": 81166,
+    "originalFilename": "d2a03148d20e6ebc935614fa62b0b16f.png"
+  },
+  "experts/zhangrenzheng.jpg": {
+    "url": "/media/experts/zhangrenzheng.jpg",
+    "width": 800,
+    "height": 1200,
+    "bytes": 114513,
+    "originalFilename": "34368450aa2092da51f19b5082dd9d58.jpg"
+  },
+  "experts/heyi.jpg": {
+    "url": "/media/experts/heyi.jpg",
+    "width": 221,
+    "height": 356,
+    "bytes": 15723,
+    "originalFilename": "26264aa3-15f7-4530-b734-c5c084e4f1f6.png"
+  },
+  "experts/clarence.jpg": {
+    "url": "/media/experts/clarence.jpg",
+    "width": 196,
+    "height": 172,
+    "bytes": 6470,
+    "originalFilename": "afa88a07-83fe-43ba-99d3-0ca48cb55645.png"
+  },
+  "experts/neil.jpg": {
+    "url": "/media/experts/neil.jpg",
+    "width": 486,
+    "height": 460,
+    "bytes": 28541,
+    "originalFilename": "196cc7bc-75f5-49fb-9ae7-389f99ca73d7.png"
+  },
+  "experts/arnold.jpg": {
+    "url": "/media/experts/arnold.jpg",
+    "width": 800,
+    "height": 534,
+    "bytes": 32467,
+    "originalFilename": "8bcc5efd750c2749afc032552fdbed9b.jpg"
+  }
+}
