@@ -10,7 +10,7 @@ await rm(path.join(dir,'components/connector-error.tsx'),{force:true});
 await mkdir(path.join(dir,'lib'),{recursive:true});
 for(const name of ['api-endpoint.ts','utils.ts','assessment']) await cp(path.join(root,'lib',name),path.join(dir,'lib',name),{recursive:true});
 await rm(path.join(dir,'lib/assessment/signature.ts'),{force:true});
-async function adapt(folder){ for(const item of await readdir(folder,{withFileTypes:true})){const p=path.join(folder,item.name);if(item.isDirectory())await adapt(p);else if(/\.(tsx?|jsx?|css)$/.test(p)){let s=await readFile(p,'utf8');s=s.replace(/(["'`])\/(?=media\/|cases|assessment|privacy|admin|favicon|#|["'`])/g,(_,q)=>q+base+'/');s=s.replace(/url\(\/(?!\/)/g,'url('+base+'/');await writeFile(p,s);}}}
+async function adapt(folder){ for(const item of await readdir(folder,{withFileTypes:true})){const p=path.join(folder,item.name);if(item.isDirectory())await adapt(p);else if(/\.(tsx?|jsx?|css)$/.test(p)){let s=await readFile(p,'utf8');s=s.replace(/(["'`])\/(?=media\/|cases|assessment|privacy|admin|favicon|#)/g,(_,q)=>q+base+'/');s=s.replace(/href=(["'])\/\1/g,(_,q)=>'href='+q+base+'/'+q);s=s.replace(/url\(\/(?!\/)/g,'url('+base+'/');await writeFile(p,s);}}}
 for(const f of ['app','components','data'])await adapt(path.join(dir,f));
 const detail=path.join(dir,'app/cases/[slug]/page.tsx');
 await writeFile(detail,(await readFile(detail,'utf8'))+'\nexport function generateStaticParams(){return flagshipCases.map(({slug})=>({slug}));}\n');
