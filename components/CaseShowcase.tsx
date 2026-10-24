@@ -1,5 +1,63 @@
-'use client';
-import {useState} from 'react';
-import {ArrowUpRight,ArrowRight,Play,Plus,Minus} from 'lucide-react';
-const cards=[{slug:'brand-chain',sector:'品牌连锁',en:'BRAND & RETAIL',title:'把获客经验，变成企业可复制的AI增长能力',desc:'某全国连锁服务集团 · 内容生产 × 员工IP × 组织落地',stats:[['10–15×','图文音乐视频生产效率'],['38→88','客户门店规模（一年内）']],before:'依赖个人经验',after:'组织持续运转',label:'业务实践',note:'制作效率为对应工作流的优化成果；门店规模为客户经营表现。'},{slug:'professional-services',sector:'专业服务',en:'PROFESSIONAL SERVICES',title:'把律师办案全流程，做成一个AI工作台',desc:'法律服务场景 · 材料整理 × 类案检索 × 文书处理',stats:[['一条工作流','贯穿材料、研究与文书'],['可追溯','证据关联与人工复核']],before:'重复劳动与个人经验',after:'可复用的专业工作方式',label:'模拟方案',note:'基于律政AI先锋计划设计的模拟FDE项目，展示拟议方案，不代表已完成的客户交付。'},{slug:'cross-border',sector:'跨境出海',en:'CROSS-BORDER COMMERCE',title:'从人工运营TikTok，到可规模复制的AI达人业务',desc:'跨境电商科技服务 · AI达人 × 自动运营 × 产品化',stats:[['5–10分钟','演示视频生成 / 条'],['产品化','从内部提效到对外业务']],before:'交付人工服务',after:'交付可复制的AI产品',label:'产品实践',note:'展示产品工作流与产品化成果；人力、销售额及GMV变化以实际数据为准。'}];
-export default function CaseShowcase(){const [selected,setSelected]=useState(0);return <div className="case-showcase">{cards.map((c,i)=><article key={c.slug} className={'showcase-panel panel-'+i+(selected===i?' is-active':'')} onMouseEnter={()=>{if(matchMedia('(hover:hover)').matches)setSelected(i)}}><button className="showcase-switch" onClick={()=>setSelected(i)} aria-expanded={selected===i} aria-controls={'case-preview-'+i}><span className="case-count">0{i+1}</span><span className="case-category"><small>{c.en}</small><strong>{c.sector}</strong></span>{selected===i?<Minus size={19}/>:<Plus size={19}/>}</button><div className="showcase-detail" id={'case-preview-'+i} hidden={selected!==i}><div className="case-orbit" aria-hidden="true"><div/><div/><div/><span>{i===0?'GROWTH':i===1?'EXPERTISE':'SCALE'}</span></div><span className="case-status">{c.label}</span><h3>{c.title}</h3><p className="case-description">{c.desc}</p><div className="showcase-stats">{c.stats.map(([n,l])=><div key={l}><strong>{n}</strong><span>{l}</span></div>)}</div><div className="case-transform"><span>{c.before}</span><ArrowRight size={18}/><strong>{c.after}</strong></div><div className="case-preview-bottom"><a className="text-link" href={'/cases/'+c.slug}>了解案例详情 <ArrowUpRight size={19}/></a>{i===0&&<span className="video-available"><Play size={12} fill="currentColor"/> 视频与成果实证</span>}</div><p className="case-metric-note">{c.note}</p></div></article>)}</div>}
+import { ArrowUpRight } from 'lucide-react';
+import './case-overview.css';
+
+function BrandDiagram() {
+  return <svg className="cs2-diagram" viewBox="0 0 300 112" role="img" aria-label="业务能力示意：内容与经验进入系统，再复制给不同门店与团队。">
+    <defs><linearGradient id="cs2-brand-glow" x1="0" x2="1"><stop stopColor="#4485ff" stopOpacity=".24"/><stop offset="1" stopColor="#4485ff" stopOpacity=".03"/></linearGradient></defs>
+    <path d="M61 34H91Q102 34 102 47V56H118M61 78H91Q102 78 102 65V56" fill="none" stroke="#4778c9" strokeWidth="1"/>
+    <path d="M176 56H195M195 28V84M195 28H217M195 56H217M195 84H217" fill="none" stroke="#4778c9" strokeWidth="1"/>
+    <g fill="#0b2046" stroke="#335a96"><rect x="10" y="19" width="58" height="29" rx="4"/><rect x="10" y="64" width="58" height="29" rx="4"/></g>
+    <g fill="#c2d8fa" fontSize="11" textAnchor="middle"><text x="39" y="38">内容模板</text><text x="39" y="83">业务经验</text></g>
+    <circle cx="148" cy="56" r="32" fill="url(#cs2-brand-glow)" stroke="#4485ff" strokeOpacity=".35"/>
+    <rect x="125" y="33" width="46" height="46" rx="10" fill="#102a56" stroke="#80adfa" strokeWidth="1"/>
+    <path d="M138 46H158M138 52H151M138 58H158M138 64H147" stroke="#9bc5ff" strokeWidth="1.4"/>
+    <g fill="#98bded" fontSize="10" textAnchor="middle"><text x="148" y="106">系统沉淀</text><text x="253" y="106">组织复制</text></g>
+    {[16,44,72].map((y,i)=><g key={y} transform={`translate(220 ${y})`}><path d="M0 8L4 0H24L28 8V11H0Z" fill={i===1?'#234e92':'#112b55'} stroke="#6596e7"/><path d="M3 11V23H25V11M11 23V15H18V23" fill="none" stroke="#6596e7"/><path d="M0 8H28M7 1L6 8M14 1V8M21 1L22 8" stroke="#6596e7"/><circle cx="46" cy="12" r="3" fill={i===1?'#9bc5ff':'#376ab7'}/></g>)}
+  </svg>;
+}
+function LegalDiagram() {
+  return <svg className="cs2-diagram" viewBox="0 0 300 112" role="img" aria-label="拟议业务能力示意：案件材料形成事实与时间轴，再辅助类案研究、文书起草与律师复核。">
+    <g fill="#0c2144" stroke="#446ca8"><rect x="15" y="25" width="43" height="53" rx="3" transform="rotate(-8 36 51)"/><rect x="22" y="22" width="43" height="53" rx="3"/><rect x="28" y="27" width="43" height="53" rx="3" fill="#132f59"/></g>
+    <path d="M38 39H60M38 46H60M38 53H54M38 60H58M38 67H50" stroke="#8ab3ee" strokeWidth="1.1"/>
+    <path d="M77 54H100M96 50L100 54L96 58M157 54H181M177 50L181 54L177 58" fill="none" stroke="#4778c9"/>
+    <rect x="107" y="15" width="44" height="79" rx="5" fill="#102a54" stroke="#4485ff" strokeOpacity=".65"/>
+    <path d="M121 33V77" stroke="#6ba3ff"/><g fill="#a9cfff"><circle cx="121" cy="33" r="3"/><circle cx="121" cy="54" r="3"/><circle cx="121" cy="77" r="3"/></g>
+    <path d="M130 31H141M130 36H137M130 52H141M130 57H137M130 75H141M130 80H137" stroke="#6794d4"/>
+    <g fill="#10284d" stroke="#335a96"><rect x="190" y="13" width="98" height="25" rx="4"/><rect x="190" y="43" width="98" height="25" rx="4"/><rect x="190" y="73" width="98" height="25" rx="4"/></g>
+    <g fill="#b6d3fb" fontSize="11"><text x="204" y="30">类案研究</text><text x="204" y="60">文书初稿</text><text x="204" y="90">律师复核</text></g>
+    <path d="M265 24H276M273 21L276 24L273 27M265 54H276M273 51L276 54L273 57M265 85L269 89L277 81" stroke="#8abaff" fill="none"/>
+    <g fill="#98bded" fontSize="10" textAnchor="middle"><text x="47" y="105">案件材料</text><text x="129" y="108">事实 / 时间轴</text></g>
+  </svg>;
+}
+function GlobalDiagram() {
+  return <svg className="cs2-diagram" viewBox="0 0 300 112" role="img" aria-label="业务能力示意：面向多国家创建 AI 达人，连接内容运营并形成标准化产品。">
+    <circle cx="47" cy="52" r="31" fill="#102950" stroke="#5088db"/><ellipse cx="47" cy="52" rx="12" ry="31" fill="none" stroke="#37639f"/><path d="M16 52H78M21 36H73M21 68H73" stroke="#37639f"/>
+    <circle cx="27" cy="36" r="3" fill="#a2caff"/><circle cx="59" cy="67" r="3" fill="#a2caff"/><circle cx="63" cy="34" r="3" fill="#a2caff"/>
+    <path d="M85 52H106M102 48L106 52L102 56M169 52H191M187 48L191 52L187 56" fill="none" stroke="#4778c9"/>
+    <g stroke="#3b6eb5" fill="#102a54"><rect x="112" y="22" width="40" height="58" rx="5" transform="rotate(-9 132 51)"/><rect x="125" y="21" width="40" height="61" rx="5" fill="#173665" stroke="#75a9fa"/></g>
+    <circle cx="145" cy="38" r="6" fill="#6e9de5"/><path d="M134 57V53C134 43 156 43 156 53V57" fill="#6e9de5"/><path d="M135 66H155M139 72H151" stroke="#93bdff" strokeWidth="1.2"/>
+    <rect x="198" y="23" width="90" height="59" rx="5" fill="#102a54" stroke="#4475bc"/><path d="M198 36H288" stroke="#4475bc"/><circle cx="205" cy="30" r="1.5" fill="#9bc5ff"/><circle cx="211" cy="30" r="1.5" fill="#548cdb"/>
+    <rect x="207" y="44" width="20" height="28" rx="2" fill="#1b427a"/><path d="M213 51L221 56L213 61Z" fill="#a7cfff"/><path d="M237 47H278M237 55H269M237 63H278M237 71H260" stroke="#6598e0"/>
+    <g fill="#98bded" fontSize="10" textAnchor="middle"><text x="47" y="105">多国家市场</text><text x="143" y="105">AI 达人</text><text x="243" y="105">内容运营 / 产品化</text></g>
+  </svg>;
+}
+
+const cases = [
+  { slug: 'brand-chain', sector: '品牌连锁', status: '业务实践', title: ['把获客经验，变成增长能力'], delivery: ['内容生产', '经验沉淀', '组织复制'], metrics: [['10–15×', '完整工作流提效'], ['38 → 88', '客户门店规模']], note: '效率为对应工作流成果；门店规模为客户经营表现。', Diagram: BrandDiagram },
+  { slug: 'professional-services', sector: '专业服务', status: '模拟方案', title: ['把办案流程，做成 AI 工作台'], delivery: ['材料整理', '类案研究', '文书审校'], metrics: [['一条工作流', '贯穿办案过程'], ['可核验', '来源与律师复核']], note: '基于律政 AI 先锋计划的拟议方案，非已完成客户交付。', Diagram: LegalDiagram },
+  { slug: 'cross-border', sector: '跨境出海', status: '产品实践', title: ['从人工运营，走向 AI 产品化'], delivery: ['AI 达人', '自动运营', '商业产品'], metrics: [['5–10 分钟', '演示视频生成 / 条'], ['产品化', '从内部提效到业务']], note: '展示产品工作流与产品化成果，非销售增长承诺。', Diagram: GlobalDiagram },
+];
+
+export default function CaseShowcase() {
+  return <div className="cs2-grid" aria-label="三大行业业务案例">
+    {cases.map(({ Diagram, ...item }, i) => <article className={`cs2-card cs2-card-${i}`} key={item.slug}>
+      <div className="cs2-header"><h3>{item.sector}</h3><span className="cs2-status">{item.status}</span></div>
+      <div className="cs2-visual"><Diagram /></div>
+      <h4 className="cs2-value">{item.title.map(line => <span key={line}>{line}</span>)}</h4>
+      <p className="cs2-deliverables">{item.delivery.map(part => <span key={part}>{part}</span>)}</p>
+      <div className="cs2-metrics">{item.metrics.map(([value, label]) => <div key={label}><strong>{value}</strong><span>{label}</span></div>)}</div>
+      <p className="cs2-note">{item.note}</p>
+      <a className="cs2-link" href={`/cases/${item.slug}`}><span>查看{item.sector}案例</span><ArrowUpRight size={23} strokeWidth={1.7} /></a>
+    </article>)}
+  </div>;
+}

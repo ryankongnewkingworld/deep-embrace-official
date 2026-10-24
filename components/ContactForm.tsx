@@ -1,4 +1,5 @@
 "use client";
+import { apiEndpoint } from "@/lib/api-endpoint";
 import { FormEvent, useId, useState } from "react";
 import "./contact.css";
 
@@ -22,7 +23,7 @@ export default function ContactForm({ source = "homepage", assessment, onSuccess
     setState("submitting");
     setMessage("");
     try {
-      const response = await fetch("/api/leads", {
+      const response = await fetch(apiEndpoint("/api/leads"), {
         method: "POST", headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           name: values.get("name"), company: values.get("company"), phone: values.get("phone"),

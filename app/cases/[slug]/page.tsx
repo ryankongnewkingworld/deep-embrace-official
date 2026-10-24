@@ -1,3 +1,4 @@
+import BrandLogo from '@/components/BrandLogo';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { ArrowUpRight, ArrowLeft, ArrowRight, Check, ChevronRight, Clock3 } from 'lucide-react';
@@ -24,11 +25,12 @@ export default async function CasePage({ params }: Props) {
   const index = flagshipCases.indexOf(item) + 1;
   return <main className="case-page">
     <header className="case-nav">
-      <a className="case-brand" href="/" aria-label="深拥智能首页"><svg className="brand-symbol" viewBox="228 225 480 350" aria-hidden="true"><image href="/media/logo.png" width="2048" height="814" /></svg><span>深拥智能<small>DEEP EMBRACE INTELLIGENCE</small></span></a>
+      <a className="case-brand" href="/" aria-label="深拥智能首页"><BrandLogo id="case-header-brand"/></a>
       <a href="/#cases" className="case-back"><ArrowLeft size={15} /> 返回客户案例</a>
       <a href="/#contact" className="case-nav-book">预约业务诊断 <ArrowUpRight size={16} /></a>
     </header>
     <div className="case-detail-wrap">
+      <nav className="case-story-nav" aria-label="探索三类业务案例">{flagshipCases.map(story => <a key={story.slug} href={`/cases/${story.slug}`} aria-current={story.slug === slug ? 'page' : undefined}><span>{story.sector}</span><ArrowUpRight size={16} /></a>)}</nav>
       <div className="case-breadcrumb"><a href="/">首页</a><ChevronRight size={12} /><a href="/#cases">客户案例</a><ChevronRight size={12} /><span>{item.sector}</span></div>
       <div className="case-layout">
         <div className="case-main-column">
@@ -69,9 +71,9 @@ export default async function CasePage({ params }: Props) {
           <div className="case-consult-inner"><div className="case-consult-orbit" aria-hidden="true"><span /><span /><span /></div><p className="case-eyebrow">LET’S TALK BUSINESS</p><h2>您的业务，<br />下一步怎么变？</h2><p>带着一个真实问题开始，<br />找到值得优先投入的 AI 机会。</p><a className="case-button" href="/#contact">预约业务诊断 <ArrowUpRight size={17} /></a><span className="case-consult-time"><Clock3 size={13} />30 分钟 · 聚焦实际业务</span><div className="case-consult-toc"><span>本页内容</span>{item.steps.map((step, i) => <a key={step.title} href={`#step-${i + 1}`}><span>0{i + 1}</span>{item.scope[i]}<ArrowRight size={12} /></a>)}</div></div>
         </aside>
       </div>
-      <section className="case-related"><div><p className="case-eyebrow">MORE POSSIBILITIES</p><h2>看看其他行业，如何开始改变。</h2></div><div className="case-related-grid">{flagshipCases.filter(other => other.slug !== slug).map(other => <a key={other.slug} href={`/cases/${other.slug}`}><span>{other.sector}<ArrowUpRight size={18} /></span><h3>{other.title}</h3><p>{other.status}</p></a>)}<a href="/cases"><span>更多应用场景<ArrowUpRight size={18} /></span><h3>找到与您手上问题相似的 AI 应用案例。</h3><p>按行业、业务问题与方法检索</p></a></div></section>
+      <section className="case-related"><div><p className="case-eyebrow">MORE POSSIBILITIES</p><h2>看看其他行业，如何开始改变。</h2></div><div className="case-related-grid">{flagshipCases.filter(other => other.slug !== slug).map(other => <a key={other.slug} href={`/cases/${other.slug}`}><span>查看{other.sector}案例<ArrowUpRight size={20} /></span><h3>{other.title}</h3><p>{other.status}</p></a>)}<a href="/cases"><span>探索更多应用场景<ArrowUpRight size={20} /></span><h3>找到与您手上问题相似的 AI 应用案例。</h3><p>按行业、业务问题与方法检索</p></a></div></section>
     </div>
-    <footer className="case-footer"><a href="/">深拥智能 · DEEP EMBRACE INTELLIGENCE</a><span>让 AI 真正成为企业生产力</span><a href="/#contact">联系我们 <ArrowUpRight size={14} /></a></footer>
+    <footer className="case-footer"><a href="/" className="case-footer-brand" aria-label="深拥智能首页"><BrandLogo id="case-footer-brand"/></a><span>让 AI 真正成为企业生产力</span><a href="/#contact">联系我们 <ArrowUpRight size={14} /></a></footer>
     <div className="case-mobile-book"><span>从一个真实业务问题开始</span><a href="/#contact">预约业务诊断 <ArrowUpRight size={15} /></a></div>
   </main>;
 }

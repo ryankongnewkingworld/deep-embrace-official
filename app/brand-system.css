@@ -1,0 +1,37 @@
+/* Shared brand language: navy for depth, ice blue for evidence, gold for action. */
+:root{--bg:#06132d;--panel:#0a2146;--ink:#f2f6ff;--muted:#a2b2ce;--accent:#a9cbff;--accent-blue:#7cafff;--line:rgba(153,189,245,.2);--action:#f0c77e;--action-hover:#ffdda0;--action-ink:#13223d;--header-height:76px}
+body{background:#06132d}
+.site-header{height:76px;background:#051026ed;border-bottom:1px solid #b3cdf21c}
+.site-header .main-nav .nav-book,.presentation-home .site-header .main-nav .nav-book{background:var(--action);color:var(--action-ink);font-size:15px;font-weight:600;min-height:46px;padding:11px 21px;border:1px solid #ffe0a6;border-radius:4px;box-shadow:0 3px 20px #f0c77e16}
+.site-header .main-nav .nav-book:hover,.presentation-home .site-header .main-nav .nav-book:hover{background:var(--action-hover);color:var(--action-ink);box-shadow:0 5px 24px #f0c77e30}
+.site-header .main-nav .nav-assessment{color:#c9dcfc}
+.site-header .main-nav .nav-assessment:hover{color:var(--action)}
+.button.button-primary{background:var(--action);color:var(--action-ink);font-size:16px}
+.button.button-primary:hover{background:var(--action-hover)}
+.site-footer{background:#051027;color:#a2b2ce;border-top:1px solid #28446d}
+.site-footer .footer-arrow{color:var(--action);border-color:#f0c77e66}
+.privacy-page{max-width:940px;padding:140px 48px 90px;margin:auto}
+.privacy-page .eyebrow{color:#a9cbff;font-size:12px;letter-spacing:.15em}
+.privacy-page h1{font-size:clamp(30px,3.2vw,44px);letter-spacing:-.03em;margin-bottom:30px}
+.privacy-page h2{font-size:23px;margin:32px 0 13px;color:#e5edff;padding-top:26px;border-top:1px solid #28446d}
+.privacy-page>p{font-size:16px;line-height:1.95;color:#b4c4de}
+.privacy-page>.button{margin-top:34px}
+@media(max-width:950px){
+ .site-header .menu-toggle{display:block}
+ .site-header .main-nav,.presentation-home .site-header .main-nav{display:none;position:absolute;top:76px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:#07182ffa;padding:22px 26px 26px;border-bottom:1px solid #28446d}
+ .site-header .main-nav.is-open,.presentation-home .site-header .main-nav.is-open{display:flex}
+ .site-header .main-nav>a,.presentation-home .site-header .main-nav>a{padding:13px 0;font-size:15px}
+ .site-header .main-nav .nav-assessment{border-left:0;border-top:1px solid #28446d;margin-top:10px;padding-top:20px;gap:10px}
+ .site-header .main-nav .nav-book,.presentation-home .site-header .main-nav .nav-book{margin-top:15px;padding:13px 18px;justify-content:space-between}
+}
+@media(max-width:1100px) and (min-width:761px){.site-header .main-nav{gap:16px}.site-header .main-nav .nav-book,.presentation-home .site-header .main-nav .nav-book{font-size:13px;padding:10px 14px}}
+@media(max-width:760px){.site-header{height:66px}.site-header .main-nav,.presentation-home .site-header .main-nav{top:66px;background:#07182ff8}.site-header .main-nav .nav-book,.presentation-home .site-header .main-nav .nav-book{font-size:16px;min-height:48px}.privacy-page{padding:112px 24px 65px}.privacy-page>p{font-size:15px}.privacy-page h2{font-size:21px}}
+
+/* The complete supplied logo replaces the separate icon and retyped wordmark. */
+.brand-lockup{display:block;flex:0 0 auto;width:212px;height:auto;aspect-ratio:1580 / 358;overflow:hidden;filter:none;mix-blend-mode:normal}
+.site-header .brand,.case-nav .case-brand,.as-header .as-brand{min-width:0;gap:0}
+.site-header .brand-lockup,.case-nav .brand-lockup{width:212px;height:48px}
+.as-header .brand-lockup{width:212px;height:48px}
+.footer-wordmark .brand-lockup,.case-footer-brand .brand-lockup{width:198px;height:auto}
+@media(min-width:761px) and (max-width:1100px){.site-header .brand-lockup,.case-nav .brand-lockup,.as-header .brand-lockup{width:190px;height:44px}}
+@media(max-width:760px){.site-header .brand-lockup,.case-nav .brand-lockup,.as-header .brand-lockup{width:180px;height:41px}.footer-wordmark .brand-lockup,.case-footer-brand .brand-lockup{width:180px}}

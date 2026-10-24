@@ -43,3 +43,8 @@ yarn-error.log*
 
 # OS metadata
 .DS_Store
+
+# Supabase checkout state and generated function bundle
+/supabase/.temp/
+/supabase/.branches/
+/supabase/functions/website-api/index.ts

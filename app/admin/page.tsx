@@ -1,4 +1,5 @@
 "use client";
+import { apiEndpoint } from "@/lib/api-endpoint";
 import { FormEvent, useState } from "react";
 import "./style.css";
 type Lead = { id:string; createdAt:number; name:string; company:string; phone:string; industry:string; problem:string; preferredTime:string; source:string; assessment?:Record<string,unknown>; notificationStatus:string; notificationAttempts:number; notificationError?:string };
@@ -9,7 +10,7 @@ export default function LeadAdmin() {
   const [error,setError] = useState("");
   const [detail,setDetail] = useState<Lead | null>(null);
   async function call(path:string,method="GET",body?:unknown) {
-    const res = await fetch(path,{method,headers:{Authorization:`Bearer ${token}`,"Content-Type":"application/json"},...(body ? {body:JSON.stringify(body)} : {})});
+    const res = await fetch(apiEndpoint(path),{method,headers:{Authorization:`Bearer ${token}`,"Content-Type":"application/json"},...(body ? {body:JSON.stringify(body)} : {})});
     const data = await res.json() as {ok:boolean;error?:string;leads?:Lead[]};
     if(!res.ok || !data.ok) throw new Error(data.error || "操作未完成");
     return data;

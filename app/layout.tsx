@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import './brand-system.css';
 export const metadata: Metadata = {
   metadataBase: new URL('https://deep-embrace-intelligence.ryankong888.chatgpt.site'),
   title: { default: '深拥智能｜让AI真正成为企业生产力', template: '%s · 深拥智能' },

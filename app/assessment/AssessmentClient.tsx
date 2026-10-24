@@ -1,5 +1,7 @@
 'use client';
+import { apiEndpoint } from "@/lib/api-endpoint";
 
+import BrandLogo from '@/components/BrandLogo';
 import { useEffect, useRef, useState } from 'react';
 import { ArrowUpRight, ArrowLeft, ArrowRight, Check, CheckCheck, Clock3, Download, FileText, RotateCcw, ShieldCheck, Sparkles, Printer, ChevronDown, LoaderCircle } from 'lucide-react';
 import ContactForm from '@/components/ContactForm';
@@ -49,7 +51,7 @@ export default function AssessmentClient() {
       }
     } catch { /* Storage can be disabled; assessment remains usable. */ }
     setReady(true);
-    fetch('/api/assessment',{cache:'no-store'}).then(r=>r.json() as Promise<{modelEnabled:boolean}>).then(d=>setModelEnabled(Boolean(d.modelEnabled))).catch(()=>{});
+    fetch(apiEndpoint('/api/assessment'),{cache:'no-store'}).then(r=>r.json() as Promise<{modelEnabled:boolean}>).then(d=>setModelEnabled(Boolean(d.modelEnabled))).catch(()=>{});
   },[]);
   useEffect(()=>{
     if(!ready)return;
@@ -72,7 +74,7 @@ export default function AssessmentClient() {
     if(!consent||busy)return;
     setBusy(true);setError('');
     try {
-      const response = await fetch('/api/assessment',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({scope,answers,opportunities,analysisConsent:true,website:''}),signal:AbortSignal.timeout(60000)});
+      const response = await fetch(apiEndpoint('/api/assessment'),{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({scope,answers,opportunities,analysisConsent:true,website:''}),signal:AbortSignal.timeout(60000)});
       const data = await response.json() as {ok:boolean;error?:string;id:string;result:Evaluation;createdAt:string;signature?:string};
       if(!response.ok || !data.ok)throw new Error(data.error || '暂时无法完成评估，请重试。');
       setAssessment({id:data.id,scope,answers,opportunities,result:data.result,createdAt:data.createdAt,signature:data.signature});go(5);
@@ -89,7 +91,7 @@ export default function AssessmentClient() {
     if(!value.reportToken){setReportStatus('咨询申请已收到。正式报告暂未生成，请稍后联系团队。');return;}
     setReportStatus('资料已收到，正在生成正式报告…');
     try {
-      const response = await fetch('/api/assessment/report',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({leadId:value.id,reportToken:value.reportToken})});
+      const response = await fetch(apiEndpoint('/api/assessment/report'),{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({leadId:value.id,reportToken:value.reportToken})});
       if(!response.ok)throw new Error('报告生成暂未完成，您的咨询资料已成功提交。');
       setReport(await response.text());setReportStatus('正式报告已生成，可预览、下载或打印。沟通时间仍待团队确认。');
     } catch(err){setReportStatus(err instanceof Error?err.message:'报告生成暂未完成。');}
@@ -97,10 +99,10 @@ export default function AssessmentClient() {
   const result = assessment?.result;
 
   return <div className="as-page">
-    <header className="as-header"><a href="/" className="as-brand" aria-label="返回深拥智能官网"><svg className="brand-symbol" viewBox="228 225 480 350" aria-hidden="true"><image href="/media/logo.png" width="2048" height="814"/></svg><span>深拥智能<small>DEEP EMBRACE INTELLIGENCE</small></span></a><a href="/" className="as-home">返回官网 <ArrowUpRight size={15}/></a></header>
+    <header className="as-header"><a href="/" className="as-brand" aria-label="返回深拥智能官网"><BrandLogo id="assessment-header-brand"/></a><nav className="as-header-actions" aria-label="评估页导航"><a href="/" className="as-home">返回官网 <ArrowUpRight size={15}/></a><a className="as-header-book" href="/#contact">预约沟通 <ArrowUpRight size={17}/></a></nav></header>
     <div className="as-layout">
-      <aside className="as-sidebar"><p className="as-eyebrow">AI MATURITY ASSESSMENT</p><h1>先看清现状，<br/>再决定下一步。</h1><p className="as-side-intro">找到值得投入的业务场景，<br/>让每一步 AI 转型更有依据。</p><div className="as-side-facts"><span><Clock3 size={17}/> 13 道核心题 · 约 5–6 分钟</span><span><ShieldCheck size={17}/> 先看评估，再决定是否咨询</span></div>
-      {step===5&&result ? <nav className="as-result-nav" aria-label="评估报告章节"><a href="#as-dimensions">01 现状与验证依据</a><a href="#as-opportunity">02 优先候选机会</a><a href="#as-action">03 四周验证安排</a><a href="#as-consult">04 报告与专家咨询</a></nav> : <div className="as-side-note"><span>评估关注三个维度</span><p>应用与流程改造<br/>价值验证方法<br/>持续落地准备</p><small>依据您的真实业务作答，不了解的情况可以选择“我不清楚”。</small></div>}
+      <aside className="as-sidebar"><p className="as-eyebrow">AI MATURITY ASSESSMENT</p><h1>先看清现状，<br/>再决定下一步。</h1><p className="as-side-intro">找到值得投入的业务场景，<br/>让每一步 AI 转型更有依据。</p><div className="as-side-facts"><span><Clock3 size={17}/> <b>13 道核心题</b> · 约 5–6 分钟</span><span><ShieldCheck size={17}/> 文字评估无需留下联系方式</span></div>
+      {step===5&&result ? <nav className="as-result-nav" aria-label="评估报告章节"><a href="#as-dimensions">01 现状与验证依据</a><a href="#as-opportunity">02 优先候选机会</a><a href="#as-action">03 四周验证安排</a><a href="#as-consult">04 报告与专家咨询</a></nav> : <div className="as-side-note"><span>评估关注三个维度</span><ol className="as-dimension-guide"><li><span>01</span>应用与流程改造</li><li><span>02</span>价值验证方法</li><li><span>03</span>持续落地准备</li></ol><small>依据您的真实业务作答，不了解的情况可以选择“我不清楚”。</small></div>}
       <div className="as-side-bottom">从单点智能，到经营系统。<span>DEEP EMBRACE · 2026</span></div></aside>
       <main className="as-main">
         <div className="as-topline"><span>{step===5?'您的评估结果':'企业 AI 转型成熟度与机会评估'}</span>{totalAnswered>0&&<button type="button" onClick={reset} className="as-reset" aria-label="重新开始评估"><RotateCcw size={13}/> 重新开始</button>}</div>

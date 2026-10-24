@@ -1,6 +1,7 @@
 import { env } from "cloudflare:workers";
+import { createSupabaseLeadDatabase } from "./supabase-lead-store";
 
-type LeadEnv = { DB?: D1Database; LEAD_ENCRYPTION_KEY?: string; LEAD_HASH_SECRET?: string; ADMIN_TOKEN?: string; FEISHU_WEBHOOK_URL?: string; FEISHU_WEBHOOK_SECRET?: string };
+type LeadEnv = { SUPABASE_URL?: string; SUPABASE_SERVICE_ROLE_KEY?: string; DB?: D1Database; LEAD_ENCRYPTION_KEY?: string; LEAD_HASH_SECRET?: string; ADMIN_TOKEN?: string; FEISHU_WEBHOOK_URL?: string; FEISHU_WEBHOOK_SECRET?: string };
 const config = () => env as unknown as LeadEnv;
 const encoder = new TextEncoder();
 const decoder = new TextDecoder();
@@ -37,7 +38,9 @@ async function constantEqual(left: string, right: string) {
   return mismatch === 0;
 }
 function db() {
-  const binding = config().DB;
+  const current = config();
+  if (current.SUPABASE_URL && current.SUPABASE_SERVICE_ROLE_KEY) return createSupabaseLeadDatabase(current.SUPABASE_URL, current.SUPABASE_SERVICE_ROLE_KEY);
+  const binding = current.DB;
   if (!binding) throw new LeadError("预约服务暂未就绪，请稍后再试。", 503);
   return binding;
 }
@@ -66,7 +69,7 @@ async function decrypt(row: LeadRow): Promise<LeadPayload> {
 }
 export function leadReadiness() {
   const current = config();
-  return { available: !!(current.DB && current.LEAD_ENCRYPTION_KEY), notificationConfigured: !!current.FEISHU_WEBHOOK_URL };
+  return { available: !!((current.DB || (current.SUPABASE_URL && current.SUPABASE_SERVICE_ROLE_KEY)) && current.LEAD_ENCRYPTION_KEY), notificationConfigured: !!current.FEISHU_WEBHOOK_URL };
 }
 export async function readJsonBody(request: Request): Promise<Record<string, unknown>> {
   const origin = request.headers.get("origin");

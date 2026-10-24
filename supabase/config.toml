@@ -1,0 +1,6 @@
+project_id = "deep-embrace-official"
+
+# Visitors submit without accounts; the handler enforces an exact origin allowlist,
+# validation/rate limits, per-report tokens and separate admin authentication.
+[functions.website-api]
+verify_jwt = false
