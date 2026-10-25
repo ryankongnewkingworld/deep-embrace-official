@@ -1,4 +1,5 @@
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, ArrowDown } from 'lucide-react';
+import type { ReactElement } from 'react';
 import './case-overview.css';
 
 function BrandDiagram() {
@@ -42,22 +43,58 @@ function GlobalDiagram() {
   </svg>;
 }
 
-const cases = [
-  { slug: 'brand-chain', sector: '品牌连锁', status: '业务实践', title: ['01｜流量不足，内容制作慢，人力成本高？', '02｜员工不会做账号、不会做 IP、不敢出镜？', '03｜少数人会做，其他人学不会，公司怎么复制？'], delivery: [], metrics: [['300人 - 减至 60人', '仅需一个月时间'], ['60倍增长', '个人内容生产效率']], note: '团队规模与内容生产效率为客户经营表现，不等同于单一 AI 项目的贡献。', Diagram: BrandDiagram },
-  { slug: 'professional-services', sector: '专业服务', status: '模拟方案', title: ['搭建 AI 案件工作台，让零散材料自动形成结构清晰、证据可追溯的案件底稿。', '建立 AI 法律检索工作流，让律师从海量判决中快速找到值得研究的相似案例。', '把优秀律师的办案方法固化进 AI 工作流，让专业经验成为团队可以复用的能力。'], delivery: [], metrics: [['全面AI化改造', '律师工作全流程'], ['30倍+', '效率提升']], note: '基于律政 AI 先锋计划的拟议方案，非已完成客户交付。', Diagram: LegalDiagram },
-  { slug: 'cross-border', sector: '跨境出海', status: '产品实践', title: ['01｜做海外市场，必须招募当地达人、组建本土团队？', '02｜选品、拍视频、发内容都靠人，规模怎么扩大？', '03｜AI 帮自己省钱之后，能不能变成一门新生意？'], delivery: [], metrics: [['成本降至 0.02%', '单条达人视频成本'], ['自动化AI运营', '经验可复制']], note: '成本与自动化效果为对应产品工作流口径，非销售承诺。', Diagram: GlobalDiagram },
+type CaseCard = {
+  slug: string;
+  sector: string;
+  status: string;
+  headline: string;
+  challenge: string;
+  changes: { lead: string; text: string }[];
+  resultLabel: string;
+  results: [string, string][];
+  note: string;
+  button: string;
+  modules?: { name: string; desc: string; tags: string[]; button: string; href: string }[];
+  Diagram: () => ReactElement;
+};
+
+const cases: CaseCard[] = [
+  { slug: 'brand-chain', sector: '品牌连锁', status: '业务实践', headline: '让内容生产摆脱人海战术，实现规模化复制', challenge: '内容生产慢、人力成本高、优秀经验难复制。', changes: [{ lead: '内容自动化', text: 'AI批量生产短视频内容' }, { lead: '经验系统化', text: '沉淀模板、方法与业务知识' }, { lead: '组织重构', text: '重塑策略、运营、研发分工' }], resultLabel: '方案价值', results: [['300人 → 60人', '运营团队规模调整'], ['10–15倍', '单条内容制作效率提升']], note: '团队规模与内容生产效率为客户经营表现，不等同于单一 AI 项目的贡献。', button: '查看完整案例', Diagram: BrandDiagram },
+  { slug: 'professional-services', sector: '专业服务', status: '模拟方案', headline: '让专业经验成为可复用的组织生产力', challenge: '材料繁杂、检索费时、专业经验难传承。', changes: [{ lead: '案件整理', text: 'AI整理证据、生成事实时间轴' }, { lead: '法律研究', text: '智能类案检索与文书辅助' }, { lead: '经验沉淀', text: '复用专业方法，分级保护隐私' }], resultLabel: '方案价值', results: [['办案全流程AI协同', '减少重复劳动'], ['专业经验可复用', '提升团队协作能力']], note: '基于律政 AI 先锋计划的拟议方案，非已完成客户交付。', button: '了解AI办案方案', modules: [{ name: '律师办案工作台', desc: '从案卷整理到文书初稿', tags: ['材料整理', '类案研究', '文书起草'], button: '查看法律方案', href: '/cases/professional-services' }, { name: 'VC 投研工作台', desc: '从项目初筛到多维研究', tags: ['项目梳理', '研究分析', '方法复用'], button: '查看投研方案', href: '/cases/vc-research' }], Diagram: LegalDiagram },
+  { slug: 'cross-border', sector: '跨境出海', status: '产品实践', headline: '用AI达人，规模化开拓海外内容市场', challenge: '达人招募难、视频成本高、多市场扩张慢。', changes: [{ lead: 'AI达人', text: '批量创建多样化虚拟达人' }, { lead: '本土运营', text: '多语言、多市场内容适配' }, { lead: '自动化增长', text: '短视频批量生产与运营流程化' }], resultLabel: '方案价值', results: [['降低达人依赖', '减少真人拍摄需求'], ['多市场规模复制', '拓展内容运营能力']], note: '成本与自动化效果为对应产品工作流口径，非销售承诺。', button: '探索AI达人方案', Diagram: GlobalDiagram },
 ];
 
 export default function CaseShowcase() {
   return <div className="cs2-grid" aria-label="三大行业业务案例">
     {cases.map(({ Diagram, ...item }, i) => <article className={`cs2-card cs2-card-${i}`} key={item.slug}>
       <div className="cs2-header"><h3>{item.sector}</h3><span className="cs2-status">{item.status}</span></div>
-      <div className="cs2-visual"><Diagram /></div>
-      <h4 className="cs2-value">{item.title.map(line => <span key={line}>{line}</span>)}</h4>
-      {item.delivery.length>0 && <p className="cs2-deliverables">{item.delivery.map(part => <span key={part}>{part}</span>)}</p>}
-      <div className="cs2-metrics">{item.metrics.map(([value, label]) => <div key={label}><strong>{value}</strong><span>{label}</span></div>)}</div>
-      <p className="cs2-note">{item.note}</p>
-      <a className="cs2-link" href={`/cases/${item.slug}`}><span>点击了解更多</span><ArrowUpRight size={23} strokeWidth={1.7} /></a>
+      {item.modules ? <div className="cs2-hub">
+        <h4 className="cs2-value">{item.headline}</h4>
+        <div className="cs2-modules">{item.modules.map(m => <div className="cs2-module" key={m.href}><div className="cs2-module-head"><h5>{m.name}</h5><p>{m.desc}</p><div className="cs2-module-tags">{m.tags.map(tag => <span key={tag}>{tag}</span>)}</div></div><a className="cs2-link cs2-module-link" href={m.href}><span>{m.button}</span><ArrowDown size={20} strokeWidth={1.8} /></a></div>)}</div>
+      </div> : <>
+        <div className="cs2-body">
+          <div className="cs2-story">
+            <h4 className="cs2-value">{item.headline}</h4>
+            <div className="cs2-challenge">
+              <p className="cs2-section-label">业务挑战</p>
+              <p className="cs2-challenge-text">{item.challenge}</p>
+            </div>
+            <div className="cs2-changes">
+              <p className="cs2-section-label">我们的改造</p>
+              {item.changes.map(c => <p className="cs2-change" key={c.lead}><strong>{c.lead}：</strong>{c.text}</p>)}
+            </div>
+          </div>
+          <div className="cs2-side">
+            <div className="cs2-results">
+              <p className="cs2-section-label">{item.resultLabel}</p>
+              <div className="cs2-metrics">{item.results.map(([value, label]) => <div key={label}><strong>{value}</strong><span>{label}</span></div>)}</div>
+            </div>
+            <div className="cs2-visual"><Diagram /></div>
+            <p className="cs2-note">{item.note}</p>
+          </div>
+        </div>
+        <a className="cs2-link" href={`/cases/${item.slug}`}><span>{item.button}</span><ArrowUpRight size={23} strokeWidth={1.7} /></a>
+      </>}
     </article>)}
   </div>;
 }

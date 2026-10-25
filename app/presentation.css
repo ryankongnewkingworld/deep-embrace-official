@@ -99,3 +99,10 @@ html:has(.presentation-home){scroll-padding-top:0;scroll-snap-type:y proximity}
 .cover-position{font-size:21px;font-weight:600;color:#c3d4ee;letter-spacing:.08em}
 @media(min-width:1080px) and (max-height:800px){.deck-chapter-title{font-size:17px}.cover-position{font-size:18px}}
 @media(max-width:760px){.deck-chapter-title{font-size:17px;letter-spacing:.04em}.cover-position{font-size:16px;letter-spacing:.05em}}
+.service-spread{display:flex;align-items:stretch;gap:14px}
+.service-leaf{flex:1 1 0;min-width:0}
+.service-arrow{align-self:center;flex:0 0 auto;display:flex;align-items:center;justify-content:center;color:#6b93cc;margin:0 -4px}
+@media(max-width:760px){.service-spread{flex-direction:column;gap:16px}.service-arrow{transform:rotate(90deg);margin:0}}
+.contact-hotline{margin:18px 0 0;font-size:16px;line-height:1.6;color:#bcd2f5}
+.contact-hotline a{color:#e7f0ff;text-decoration:none}
+.contact-hotline a:hover{color:#fff}

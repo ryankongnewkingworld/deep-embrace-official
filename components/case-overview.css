@@ -27,3 +27,29 @@
 @media(max-width:760px){.cs2-card .cs2-link{font-size:17px;min-height:54px}.cs2-note{font-size:12px}}
 @media(prefers-reduced-motion:reduce){.cs2-card .cs2-link,.cs2-card .cs2-link svg{transition:none}}
 .cs2-metrics strong{white-space:normal}
+.cs2-grid{grid-template-columns:1fr;gap:24px}
+.cs2-body{display:grid;grid-template-columns:minmax(0,1.28fr) minmax(0,1fr);gap:44px;align-items:start;margin-top:16px}
+.cs2-value{font-weight:600}
+.cs2-story .cs2-value{margin:0 0 18px!important;line-height:1.45}
+.cs2-challenge{margin:0 0 22px}
+.cs2-challenge .cs2-section-label{margin-bottom:6px}
+.cs2-challenge-text{margin:0;font-size:13px;line-height:1.75;color:#a9bcd6}
+.cs2-changes{display:flex;flex-direction:column;gap:8px;margin:0}
+.cs2-change{margin:0;font-size:13px;line-height:1.7;color:#9fb4d2}
+.cs2-change strong{color:#d5e5fa;font-weight:600}
+.cs2-section-label{font-size:11px;letter-spacing:.08em;color:#7d9dc7;margin:0 0 8px}
+.cs2-results{border-top:1px solid rgba(117,163,239,.16);padding-top:13px;margin:0 0 20px}
+.cs2-results .cs2-metrics{border-top:0;padding-top:0}
+.cs2-side .cs2-visual{margin:0 0 16px;height:120px}
+.cs2-side .cs2-note{margin:2px 0 0!important;min-height:0}
+.cs2-card .cs2-link{margin-top:20px}
+@media(max-width:760px){.cs2-body{grid-template-columns:1fr;gap:20px}}
+.cs2-hub{display:flex;flex-direction:column;gap:18px;padding-top:4px}
+.cs2-modules{display:flex;flex-direction:column;gap:14px}
+.cs2-module{display:flex;flex-direction:column;gap:14px;padding:16px;border:1px solid rgba(116,162,236,.28);border-radius:6px;background:rgba(22,49,67,.18)}
+.cs2-module-head{display:flex;flex-direction:column;gap:5px}
+.cs2-module-head h5{margin:0;font-size:17px;font-weight:600;color:#eef4ff;letter-spacing:-.01em}
+.cs2-module-head p{margin:0;font-size:12px;color:#93b0d5}
+.cs2-module-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:5px}
+.cs2-module-tags span{font-size:11px;color:#a8c3e6;border:1px solid rgba(128,169,232,.28);padding:2px 8px;border-radius:3px}
+.cs2-module-link{margin-top:2px}

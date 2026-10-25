@@ -108,7 +108,7 @@ export default function AssessmentClient() {
         <div className="as-topline"><span>{step===5?'您的评估结果':'企业 AI 转型成熟度与机会评估'}</span>{totalAnswered>0&&<button type="button" onClick={reset} className="as-reset" aria-label="重新开始评估"><RotateCcw size={13}/> 重新开始</button>}</div>
         {step<5&&<>
           <div className="as-progress" aria-label="四组核心问题">{DATA.groups.map((g,i)=><button key={g.id} type="button" disabled={i>step} onClick={()=>go(i)} className={i===step?'active':i<step?'done':''} aria-current={i===step?'step':undefined}><span>{i<step?<Check size={13}/>:g.id}</span>{g.label}<i/></button>)}</div>
-          {step===0&&<div className="as-intro">{DATA.intro.map(t=><p key={t}>{t}</p>)}<label className="as-scope">本次评估范围<select value={scope} onChange={e=>setScope(e.target.value as Scope)}>{scopes.map(s=><option key={s}>{s}</option>)}</select></label></div>}
+          {step===0&&<div className="as-intro">{DATA.intro.map(t=><p key={t}>{t}</p>)}</div>}
         </>}
         {step<4&&<>
           <div className="as-group-head"><span className="as-kicker">0{step+1} / 04 · {group.label}</span><h2 tabIndex={-1} ref={heading}>{group.title}</h2><p>{group.description}</p></div>
