@@ -48,3 +48,5 @@ yarn-error.log*
 /supabase/.temp/
 /supabase/.branches/
 /supabase/functions/website-api/index.ts
+
+.pages-build/
