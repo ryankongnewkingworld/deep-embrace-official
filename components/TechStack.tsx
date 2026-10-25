@@ -90,7 +90,7 @@ export default function TechStack() {
     </div>
 
     <figcaption className="ta2-caption" id={descriptionId} aria-live="polite" aria-atomic="true">
-      {selection ? <><strong>{selection.name}</strong><span>{selection.description}</span></> : <><strong>从单点智能，到经营系统。</strong><span>点击图中节点，了解每项能力如何进入业务。</span></>}
+      {selection ? <><strong>{selection.name}</strong><span>{selection.description}</span></> : <><strong>四层技术架构，支撑三大经营场景。</strong><span>点击图中节点，了解每项能力如何进入业务。</span></>}
     </figcaption>
   </figure>;
 }

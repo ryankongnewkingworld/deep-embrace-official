@@ -43,9 +43,9 @@ function GlobalDiagram() {
 }
 
 const cases = [
-  { slug: 'brand-chain', sector: '品牌连锁', status: '业务实践', title: ['把获客经验，变成增长能力'], delivery: ['内容生产', '经验沉淀', '组织复制'], metrics: [['10–15×', '完整工作流提效'], ['38 → 88', '客户门店规模']], note: '效率为对应工作流成果；门店规模为客户经营表现。', Diagram: BrandDiagram },
-  { slug: 'professional-services', sector: '专业服务', status: '模拟方案', title: ['把办案流程，做成 AI 工作台'], delivery: ['材料整理', '类案研究', '文书审校'], metrics: [['一条工作流', '贯穿办案过程'], ['可核验', '来源与律师复核']], note: '基于律政 AI 先锋计划的拟议方案，非已完成客户交付。', Diagram: LegalDiagram },
-  { slug: 'cross-border', sector: '跨境出海', status: '产品实践', title: ['从人工运营，走向 AI 产品化'], delivery: ['AI 达人', '自动运营', '商业产品'], metrics: [['5–10 分钟', '演示视频生成 / 条'], ['产品化', '从内部提效到业务']], note: '展示产品工作流与产品化成果，非销售增长承诺。', Diagram: GlobalDiagram },
+  { slug: 'brand-chain', sector: '品牌连锁', status: '业务实践', title: ['01｜流量不足，内容制作慢，人力成本高？', '02｜员工不会做账号、不会做 IP、不敢出镜？', '03｜少数人会做，其他人学不会，公司怎么复制？'], delivery: [], metrics: [['300人 - 减至 60人', '仅需一个月时间'], ['60倍增长', '个人内容生产效率']], note: '团队规模与内容生产效率为客户经营表现，不等同于单一 AI 项目的贡献。', Diagram: BrandDiagram },
+  { slug: 'professional-services', sector: '专业服务', status: '模拟方案', title: ['搭建 AI 案件工作台，让零散材料自动形成结构清晰、证据可追溯的案件底稿。', '建立 AI 法律检索工作流，让律师从海量判决中快速找到值得研究的相似案例。', '把优秀律师的办案方法固化进 AI 工作流，让专业经验成为团队可以复用的能力。'], delivery: [], metrics: [['全面AI化改造', '律师工作全流程'], ['30倍+', '效率提升']], note: '基于律政 AI 先锋计划的拟议方案，非已完成客户交付。', Diagram: LegalDiagram },
+  { slug: 'cross-border', sector: '跨境出海', status: '产品实践', title: ['01｜做海外市场，必须招募当地达人、组建本土团队？', '02｜选品、拍视频、发内容都靠人，规模怎么扩大？', '03｜AI 帮自己省钱之后，能不能变成一门新生意？'], delivery: [], metrics: [['成本降至 0.02%', '单条达人视频成本'], ['自动化AI运营', '经验可复制']], note: '成本与自动化效果为对应产品工作流口径，非销售承诺。', Diagram: GlobalDiagram },
 ];
 
 export default function CaseShowcase() {
@@ -54,10 +54,10 @@ export default function CaseShowcase() {
       <div className="cs2-header"><h3>{item.sector}</h3><span className="cs2-status">{item.status}</span></div>
       <div className="cs2-visual"><Diagram /></div>
       <h4 className="cs2-value">{item.title.map(line => <span key={line}>{line}</span>)}</h4>
-      <p className="cs2-deliverables">{item.delivery.map(part => <span key={part}>{part}</span>)}</p>
+      {item.delivery.length>0 && <p className="cs2-deliverables">{item.delivery.map(part => <span key={part}>{part}</span>)}</p>}
       <div className="cs2-metrics">{item.metrics.map(([value, label]) => <div key={label}><strong>{value}</strong><span>{label}</span></div>)}</div>
       <p className="cs2-note">{item.note}</p>
-      <a className="cs2-link" href={`/cases/${item.slug}`}><span>查看{item.sector}案例</span><ArrowUpRight size={23} strokeWidth={1.7} /></a>
+      <a className="cs2-link" href={`/cases/${item.slug}`}><span>点击了解更多</span><ArrowUpRight size={23} strokeWidth={1.7} /></a>
     </article>)}
   </div>;
 }

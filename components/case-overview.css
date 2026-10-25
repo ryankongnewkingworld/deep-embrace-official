@@ -26,3 +26,4 @@
 @media(min-width:761px) and (max-width:1090px){.cs2-card .cs2-link{font-size:15px;padding:12px;gap:8px;min-height:50px}.cs2-card .cs2-link svg{width:19px}}
 @media(max-width:760px){.cs2-card .cs2-link{font-size:17px;min-height:54px}.cs2-note{font-size:12px}}
 @media(prefers-reduced-motion:reduce){.cs2-card .cs2-link,.cs2-card .cs2-link svg{transition:none}}
+.cs2-metrics strong{white-space:normal}
