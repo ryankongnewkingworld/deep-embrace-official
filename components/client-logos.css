@@ -1,5 +1,5 @@
-/* Display the supplied originals without recoloring or stretch. */
-.deck-clients .client-proof-originals{margin-inline:auto}
+/* Display the supplied originals without recoloring or stretch; keep the whole block centered. */
+.deck-clients .client-proof-originals{margin-left:auto!important;margin-right:auto!important}
 .client-proof-originals .client-logo-grid{grid-template-columns:repeat(6,minmax(0,1fr));gap:10px}
 .client-proof-originals .client-logo{height:86px;aspect-ratio:auto;background:#fff;border:1px solid #dce4ee;border-radius:4px;opacity:1;padding:15px 20px;min-width:0}
 .client-proof-originals .client-logo img{display:block;width:100%;height:100%;max-width:100%;object-fit:contain;object-position:center;filter:none}
